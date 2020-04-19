@@ -1,7 +1,11 @@
 package com.example.trainerplanner.trainerController;
+import javax.persistence.Entity;
+
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,17 +17,18 @@ import com.example.trainerplanner.model.domain.Trainer;
 import com.example.trainerplanner.model.domain.TrainerRepository;
 
 @RestController
+@Component
 public class TrainerController {
 	
+	@Autowired
+	private TrainerRepository trepository; 
 	
-	public TrainerRepository trepository; 
-	
-	
-	public CategoryRepository crepository;
+	@Autowired
+	private CategoryRepository crepository;
 	
     @RequestMapping(value= {"/", "/trainerlist"})
     public String trainerList(Model model) {	
-        model.addAttribute("trainer", trepository.findAll());
+       model.addAttribute("trainer", trepository.findAll());
         return "trainerlist";
     }
   

@@ -2,11 +2,12 @@ package com.example.trainerplanner;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-
-
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +16,10 @@ import com.example.trainerplanner.model.domain.TrainerRepository;
 import com.example.trainerplanner.model.domain.Category;
 import com.example.trainerplanner.model.domain.CategoryRepository;
 
-
+@ComponentScan("com.example.trainerplanner.model.domain")
+@EnableAutoConfiguration
 @SpringBootApplication
+
 public class TrainerplannerApplication {
 	private static final Logger log = LoggerFactory.getLogger(TrainerplannerApplication.class);
 	
@@ -24,7 +27,7 @@ public class TrainerplannerApplication {
 		SpringApplication.run(TrainerplannerApplication.class, args);
 	}
 	
-	//@Bean
+	@Bean
 	public CommandLineRunner trainerDemo(CategoryRepository crepository, TrainerRepository trepository) {
 		return (args) -> {
 			log.info("Save some exercises");

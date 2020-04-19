@@ -9,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+@Component
 @Entity
 public class Category {
 	@Id
@@ -35,8 +38,8 @@ public class Category {
 		return categoryid;
 	}
 	
-	public void setDepartmentid(Long departmentid) {
-		this.categoryid = departmentid;
+	public void setDepartmentid(Long categoryid) {
+		this.categoryid = categoryid;
 	}
 	
 	public String getName() {
