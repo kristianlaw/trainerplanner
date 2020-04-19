@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<title>Training list</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+	<body>
+		<h1>Add an exercise</h1>
+<div>
+<form th:object="${trainer}" th:action="@{save}" action="#" method="post">
+<label for="name">Name of exercise</label>
+<input type="text" id="title" th:field="*{name}" />
+
+<label for="reps">Reps</label>
+<input type="text" id="author" th:field="*{reps}" />
+
+<label for="sets">Sets</label>
+<input type="number" th:field="*{sets}" />
+
+
+<input type="submit" value="Save"></input>
+</form>
+</div>
+	</body>
+</html>

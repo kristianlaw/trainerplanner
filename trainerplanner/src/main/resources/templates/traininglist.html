@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<title>Training list</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+	<body>
+		<h1>Exercises</h1>
+		
+		<table>
+			<tbody>
+				<tr th:each ="trainer : ${trainer}">
+					<td th:text="${trainer.name}"> </td>
+					<td th:text="${trainer.reps}"> </td>
+					<td th:text="${trainer.sets}"> </td>
+					
+					<td><a th:href="@{/delete/{id}(id=${trainer.id})}">Delete</a></td>
+					
+				</tr>
+				<a href="/add" class="btn btn-primary">Add an exercise</a>
+			</tbody>
+		</table>
+		
+	
+	</body>
+</html>
