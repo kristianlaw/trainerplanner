@@ -25,7 +25,7 @@ public class Category {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Trainer> trainers;
 	
-
+//Kategoriaan getterit, setterit
 	
 	public Category() {}
 	
@@ -38,7 +38,7 @@ public class Category {
 		return categoryid;
 	}
 	
-	public void setDepartmentid(Long categoryid) {
+	public void setCategoryid(Long categoryid) {
 		this.categoryid = categoryid;
 	}
 	

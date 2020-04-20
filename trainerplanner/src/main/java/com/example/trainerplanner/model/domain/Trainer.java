@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Component
@@ -35,7 +35,7 @@ public class Trainer {
 	}
 
 	public Trainer() {
-		//Empty
+		//Tyhjä
 	}
 	
 	public Trainer(String name, Integer reps, Integer sets, Category category) {
@@ -45,7 +45,8 @@ public class Trainer {
 		this.sets = sets;
 		this.category =category;
 	}
-
+	
+	//Asetetaan getterit ja setterit Traineriin.
 	public long getId() {
 		return id;
 	}
@@ -81,7 +82,7 @@ public class Trainer {
 	
 	
 	@Override
-	public String toString() {
+	public String toString() { //Jos kategoria tyhjä niin palautetaan ensimmäinen kohta, muuten else-kohta.
 		if (this.category != null)
 			return "Trainer [id=" + id + ", name=" + name + ", reps=" + reps + ", =" + sets + " sets =" + this.getCategory() + "]";		
 		else
