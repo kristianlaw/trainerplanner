@@ -14,7 +14,10 @@ import org.slf4j.LoggerFactory;
 
 import com.example.trainerplanner.model.domain.Trainer;
 import com.example.trainerplanner.model.domain.TrainerRepository;
+import com.example.trainerplanner.model.domain.User;
+import com.example.trainerplanner.model.domain.UserRepository;
 import com.example.trainerplanner.model.domain.Category;
+import com.example.trainerplanner.model.domain.CategoryRepository;
 //Skannaa komponentit paketista
 @ComponentScan({"com.example.trainerplanner.model.domain", "com.example.trainerplanner.trainerController", "com.example.trainerplanner.model"})
 @EnableAutoConfiguration
@@ -29,7 +32,7 @@ public class TrainerplannerApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner trainerDemo(CategoryRepository crepository, TrainerRepository trepository) {
+	public CommandLineRunner trainerDemo(CategoryRepository crepository, TrainerRepository trepository, UserRepository urepository) {
 		return (args) -> {
 			log.info("Save some exercises");
 			//Tässä kohdassa tehdään uudet kategoriat "c repositoryyn".
@@ -50,7 +53,14 @@ public class TrainerplannerApplication {
 			trepository.save(new Trainer("Tricep extension", 8, 3, crepository.findByName("Triceps").get(0)));
 			trepository.save(new Trainer("Squat", 8, 3, crepository.findByName("Quadriceps").get(0)));
 		
+			
+			User userYksi = new User("user", "$2y$12$4iGWyQs5hC6ibe5Pq7ochekppUZcSfeIV.tjgZIuSobVA8B5vOhXK", "USER");
+			//Molemmat salasanat hashattu BCryptillä, roundit oli 12 ja 9 
+			User userKaksi = new User("admin", "$2y$06$K9UJzObPGyroQKlkTzWWz.BlUurpYCMFelyvM/2AVYSbzogvd3.zq", "ADMIN");
+			 
 	
+			urepository.save(userYksi);
+			urepository.save(userKaksi);
 				
 		log.info("fetch all exercises");
 			for (Trainer trainer : trepository.findAll()) {
