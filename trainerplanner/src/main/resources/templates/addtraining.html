@@ -10,10 +10,10 @@
 <div>
 <form th:object="${trainer}" th:action="@{save}" action="#" method="post">
 <label for="name">Name of exercise</label>
-<input type="text" id="title" th:field="*{name}" />
+<input type="text" id="name" th:field="*{name}" />
 
 <label for="reps">Reps</label>
-<input type="text" id="author" th:field="*{reps}" />
+<input type="number" th:field="*{reps}" />
 
 <label for="sets">Sets</label>
 <input type="number" th:field="*{sets}" />
