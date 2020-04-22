@@ -22,14 +22,14 @@ public class User {
 	    
 	    public User() {
 	    }
-
+	    //Ominaisuudet Userille, nimi, salasanahash ja rooli
 		public User(String username, String passwordHash, String role) {
 			super();
 			this.username = username;
 			this.passwordHash = passwordHash;
 			this.role = role;
 		}
-
+		//Getterit ja setterit
 		public Long getId() {
 			return id;
 		}

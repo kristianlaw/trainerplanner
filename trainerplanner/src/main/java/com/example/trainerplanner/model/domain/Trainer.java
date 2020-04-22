@@ -37,7 +37,7 @@ public class Trainer {
 	public Trainer() {
 		//Tyhjä
 	}
-	
+		//Ominaisuudet Trainerille, nimi, toistot, sarjat, kategoria
 	public Trainer(String name, Integer reps, Integer sets, Category category) {
 		super();
 		this.name = name;

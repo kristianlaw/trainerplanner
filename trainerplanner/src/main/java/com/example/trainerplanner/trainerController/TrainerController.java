@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.trainerplanner.model.domain.CategoryRepository;
 import com.example.trainerplanner.model.domain.Trainer;
 import com.example.trainerplanner.model.domain.TrainerRepository;
+import com.example.trainerplanner.model.domain.User;
 
 @Controller
 @Component
@@ -52,4 +53,10 @@ public class TrainerController {
     	trepository.deleteById(trainerId);
         return "redirect:../trainerlist";
     }     
+    //Login metodi joka sitten redirectaa käyttäjän trainerlistiin 
+    @RequestMapping(value ="/login", method = RequestMethod.POST)
+    public String login(User user) {
+    	return "redirect:../trainerlist";
+    }
+    
 }
